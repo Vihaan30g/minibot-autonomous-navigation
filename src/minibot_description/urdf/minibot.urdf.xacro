@@ -331,7 +331,7 @@
             name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <robot_param>robot_description</robot_param>
       <robot_param_node>robot_state_publisher</robot_param_node>
-      <parameters>$(find minibot_description)/config/controllers.yaml</parameters>
+      <parameters>$(find minibot_control)/config/controllers.yaml</parameters>
       <hold_joints>false</hold_joints>
     </plugin>
   </gazebo>
@@ -358,4 +358,46 @@
     <mu2>1.0</mu2>
   </gazebo>
 
+
+
+
+
+  <!--SENSORS-->
+
+
+  <gazebo reference="orin_link">
+      <sensor name="minibot_imu" type="imu">
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <visualize>true</visualize>
+        <topic>imu</topic>
+        <ignition_frame_id>orin_link</ignition_frame_id>
+      </sensor>
+    </gazebo>
+
+
+  <gazebo reference="zed2i_camera_link">
+    <sensor name="zed2i" type="rgbd">
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <horizontal_fov>1.91986</horizontal_fov> <image>
+        <width>1280</width>
+        <height>720</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.3</near>
+        <far>20.0</far>
+      </clip>
+      <topic>camera</topic>
+      <ignition_frame_id>camera_link_optical</ignition_frame_id>
+    </sensor>
+  </gazebo>
+
+
+
+
+
+
 </robot>
+

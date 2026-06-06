@@ -11,6 +11,8 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/gazebo.launch.py']),
+        ('share/' + package_name + '/config', ['config/bridge_config.yaml']),
+        ('share/' + package_name + '/worlds', ['worlds/minibot_world.sdf']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,3 +30,4 @@ setup(
         ],
     },
 )
+
