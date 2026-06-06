@@ -27,6 +27,12 @@ def generate_launch_description():
 
     urdf_path = os.path.join(pkg_path, 'urdf', 'minibot.urdf.xacro')
 
+    controller_config = os.path.join(
+        get_package_share_directory('minibot_control'),
+        'config',
+        'controllers.yaml'
+    )
+
     robot_description_config = xacro.process_file(urdf_path)
     robot_description = robot_description_config.toxml()
 
@@ -115,6 +121,8 @@ def generate_launch_description():
                         'diff_drive_controller',
                         '--controller-manager', '/controller_manager',
                         '--controller-manager-timeout', '30',
+                        '--param-file',
+                        controller_config,
                     ],
                     parameters=[{'use_sim_time': True}],
                     output='screen'
