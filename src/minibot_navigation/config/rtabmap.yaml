@@ -1,0 +1,24 @@
+rtabmap:
+  ros__parameters:
+
+    # Standard ROS 2 parameters (Booleans and Strings)
+    use_sim_time: true
+    frame_id: "base_link"
+
+    # Subscription flags (Booleans)
+    subscribe_depth: true
+    subscribe_rgb: true
+    subscribe_scan: false
+    approx_sync: true
+
+    # RTAB-Map parameters:
+    # Booleans must be written as "true"/"false" strings in ROS 2 RTAB-Map parameters
+    RGBD/NeighborLinkRefining: "true"
+    Grid/FromDepth: "true"
+    Mem/IncrementalMemory: "true"
+    Mem/InitWMWithAllNodes: "false"
+
+    # Numbers must strictly match their internal types (Double vs String/Integer)
+    Grid/RangeMax: "10.0"       # Kept as string; RTAB-Map handles numeric parameters as strings in ROS 2
+    Reg/Strategy: "0"          # Reg/Strategy is an enum/integer, passed as a string
+    Vis/MinInliers: "15"       # Vis/MinInliers is an integer, passed as a string

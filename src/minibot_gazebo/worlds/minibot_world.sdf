@@ -1,22 +1,21 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
 
-  <world name="empty">
+  <world name="indoor_world">
+
+    <!-- ================= SYSTEMS ================= -->
 
     <plugin
       filename="ignition-gazebo-physics-system"
-      name="ignition::gazebo::systems::Physics">
-    </plugin>
+      name="ignition::gazebo::systems::Physics"/>
 
     <plugin
       filename="ignition-gazebo-user-commands-system"
-      name="ignition::gazebo::systems::UserCommands">
-    </plugin>
+      name="ignition::gazebo::systems::UserCommands"/>
 
     <plugin
       filename="ignition-gazebo-scene-broadcaster-system"
-      name="ignition::gazebo::systems::SceneBroadcaster">
-    </plugin>
+      name="ignition::gazebo::systems::SceneBroadcaster"/>
 
     <plugin
       filename="ignition-gazebo-sensors-system"
@@ -26,8 +25,9 @@
 
     <plugin
       filename="ignition-gazebo-imu-system"
-      name="ignition::gazebo::systems::Imu">
-    </plugin>
+      name="ignition::gazebo::systems::Imu"/>
+
+    <!-- ================= LIGHT ================= -->
 
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
@@ -36,6 +36,8 @@
       <specular>0.2 0.2 0.2 1</specular>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
+
+    <!-- ================= GROUND ================= -->
 
     <model name="ground_plane">
       <static>true</static>
@@ -60,14 +62,222 @@
           </geometry>
 
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
 
         </visual>
 
       </link>
 
+    </model>
+
+    <!-- ================= ROOM WALLS ================= -->
+
+    <!-- North Wall -->
+    <model name="north_wall">
+      <static>true</static>
+      <pose>0 5 1 0 0 0</pose>
+
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- South Wall -->
+    <model name="south_wall">
+      <static>true</static>
+      <pose>0 -5 1 0 0 0</pose>
+
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- East Wall -->
+    <model name="east_wall">
+      <static>true</static>
+      <pose>5 0 1 0 0 0</pose>
+
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 10 2</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 10 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- West Wall -->
+    <model name="west_wall">
+      <static>true</static>
+      <pose>-5 0 1 0 0 0</pose>
+
+      <link name="wall">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 10 2</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 10 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= BOX 1 ================= -->
+
+    <model name="box_1">
+      <static>true</static>
+      <pose>2 2 0.5 0 0 0</pose>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- ================= BOX 2 ================= -->
+
+    <model name="box_2">
+      <static>true</static>
+      <pose>-2 -1 0.75 0 0 0</pose>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 1 1.5</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 1 1.5</size>
+            </box>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- ================= CYLINDER ================= -->
+
+    <model name="cylinder_1">
+      <static>true</static>
+      <pose>2 -2 0.5 0 0 0</pose>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- ================= TABLE ================= -->
+
+    <model name="table_obstacle">
+      <static>true</static>
+      <pose>-2 2 0.4 0 0 0</pose>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.8</size>
+            </box>
+          </geometry>
+        </visual>
+
+      </link>
     </model>
 
   </world>
