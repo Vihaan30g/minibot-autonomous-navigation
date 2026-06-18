@@ -3,8 +3,6 @@
 
   <world name="indoor_world">
 
-    <!-- ================= SYSTEMS ================= -->
-
     <plugin
       filename="ignition-gazebo-physics-system"
       name="ignition::gazebo::systems::Physics"/>
@@ -27,8 +25,6 @@
       filename="ignition-gazebo-imu-system"
       name="ignition::gazebo::systems::Imu"/>
 
-    <!-- ================= LIGHT ================= -->
-
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
@@ -36,8 +32,6 @@
       <specular>0.2 0.2 0.2 1</specular>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
-
-    <!-- ================= GROUND ================= -->
 
     <model name="ground_plane">
       <static>true</static>
@@ -72,9 +66,6 @@
 
     </model>
 
-    <!-- ================= ROOM WALLS ================= -->
-
-    <!-- North Wall -->
     <model name="north_wall">
       <static>true</static>
       <pose>0 5 1 0 0 0</pose>
@@ -94,11 +85,14 @@
               <size>10 0.2 2</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- South Wall -->
     <model name="south_wall">
       <static>true</static>
       <pose>0 -5 1 0 0 0</pose>
@@ -118,11 +112,14 @@
               <size>10 0.2 2</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- East Wall -->
     <model name="east_wall">
       <static>true</static>
       <pose>5 0 1 0 0 0</pose>
@@ -142,11 +139,14 @@
               <size>0.2 10 2</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- West Wall -->
     <model name="west_wall">
       <static>true</static>
       <pose>-5 0 1 0 0 0</pose>
@@ -166,11 +166,13 @@
               <size>0.2 10 2</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
-
-    <!-- ================= BOX 1 ================= -->
 
     <model name="box_1">
       <static>true</static>
@@ -192,12 +194,14 @@
               <size>1 1 1</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
 
       </link>
     </model>
-
-    <!-- ================= BOX 2 ================= -->
 
     <model name="box_2">
       <static>true</static>
@@ -219,12 +223,14 @@
               <size>1.5 1 1.5</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
 
       </link>
     </model>
-
-    <!-- ================= CYLINDER ================= -->
 
     <model name="cylinder_1">
       <static>true</static>
@@ -248,12 +254,14 @@
               <length>1.0</length>
             </cylinder>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
 
       </link>
     </model>
-
-    <!-- ================= TABLE ================= -->
 
     <model name="table_obstacle">
       <static>true</static>
@@ -275,6 +283,10 @@
               <size>1.5 0.8 0.8</size>
             </box>
           </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.6 0.3 0.1 1</diffuse>
+          </material>
         </visual>
 
       </link>

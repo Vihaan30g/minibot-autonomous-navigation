@@ -154,7 +154,7 @@ local_costmap:
       enabled: true
       observation_sources: pointcloud
       pointcloud:
-        topic: /camera/points
+        topic: /camera/points_fixed
         data_type: "PointCloud2"
         marking: true
         clearing: true
