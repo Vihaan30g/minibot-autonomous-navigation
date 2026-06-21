@@ -16,8 +16,8 @@ diff_drive_controller:
     left_wheel_names:  ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.18   # distance between the two wheel centres (m)
-    wheel_radius:     0.03   # wheel radius (m)
+    wheel_separation: 0.27692   # distance between the two wheel centres (m)
+    wheel_radius:     0.04615   # wheel radius (m)
 
     publish_rate: 50.0       # Hz — odometry publish rate
 

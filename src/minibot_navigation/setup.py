@@ -68,6 +68,7 @@ setup(
 
     entry_points={
         'console_scripts': [
+            'odom_logger = minibot_navigation.odom_logger:main',
         ],
     },
 

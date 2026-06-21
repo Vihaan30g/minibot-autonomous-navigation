@@ -65,6 +65,7 @@
       </link>
 
     </model>
+    
 
     <model name="north_wall">
       <static>true</static>
@@ -174,7 +175,7 @@
       </link>
     </model>
 
-    <model name="box_1">
+    <!-- <model name="box_1">
       <static>true</static>
       <pose>2 2 0.5 0 0 0</pose>
 
@@ -201,7 +202,7 @@
         </visual>
 
       </link>
-    </model>
+    </model> -->
 
     <model name="box_2">
       <static>true</static>
