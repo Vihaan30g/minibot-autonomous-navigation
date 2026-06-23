@@ -12,20 +12,28 @@ rtabmap:
     approx_sync: true
 
     # RTAB-Map parameters:
-    # Booleans must be written as "true"/"false" strings in ROS 2 RTAB-Map parameters
     RGBD/NeighborLinkRefining: "true"
     Grid/FromDepth: "true"
     Mem/IncrementalMemory: "true"
     Mem/InitWMWithAllNodes: "false"
 
-    # Numbers must strictly match their internal types (Double vs String/Integer)
-    Grid/RangeMax: "10.0"       # Kept as string; RTAB-Map handles numeric parameters as strings in ROS 2
-    Reg/Strategy: "0"          # Reg/Strategy is an enum/integer, passed as a string
-    Vis/MinInliers: "15"       # Vis/MinInliers is an integer, passed as a string
-
-
-    Grid/MinGroundHeight: "-0.1"
+    Grid/RangeMax: "10.0"       
+    Reg/Strategy: "0"          
+    Vis/MinInliers: "40"   # previous=15    
+    Vis/InlierDistance: "0.05"
+    Mem/RehearsalSimilarity: "0.45"
+    RGBD/ProximityBySpace: "false"
     Grid/MaxGroundHeight: "0.1"
+    RGBD/LoopClosureReextractFeatures: "true"
+    Vis/MinInliersDistribution: "0.1"
+    
+    Kp/DetectorStrategy: "1"
+    Kp/MaxFeatures: "1000"
+    Kp/MaxDepth: "3.0"
+
+    RGBD/OptimizeMaxError: "0.1"
+
+
     # Grid/NormalK:
     # Grid/GroundIsObstacle:
     # Grid/FlatObstacleDetected:
